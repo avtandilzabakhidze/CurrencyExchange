@@ -18,9 +18,9 @@ public class SaveCurrency {
     @GeneratedValue(generator = "savecurrency_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "savecurrency_id_gen", sequenceName = "savecurrency_id_seq", allocationSize = 1)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Currency currency;
     private double totalAmount;
     private double amount;
-    private LocalDateTime transactionTime =LocalDateTime.now();
+    private LocalDateTime transactionTime = LocalDateTime.now();
 }

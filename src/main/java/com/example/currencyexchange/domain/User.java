@@ -1,5 +1,6 @@
 package com.example.currencyexchange.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class User {
     private LocalDate birthDate;
     private long phoneNumber;
     private String email;
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
 }

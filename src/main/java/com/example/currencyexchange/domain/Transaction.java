@@ -18,13 +18,13 @@ public class Transaction {
     @GeneratedValue(generator = "transaction_id_gen",strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "transaction_id_gen",sequenceName = "transaction_id_seq",allocationSize = 1)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     private double amount;
     private double takenAmount;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Currency fromCurrency;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Currency toCurrency;
-    private LocalDateTime transactionTime =LocalDateTime.now();
+    private LocalDateTime transactionTime = LocalDateTime.now();
 }
