@@ -27,8 +27,4 @@ public class BudgetController {
         return service.addBudget(budgetDTO);
     }
 
-    @PutMapping("/{id}")
-    public BudgetDTO updateBudget(@PathVariable long id,@Valid @RequestBody BudgetDTO budgetDTO) {
-        return service.updateBudget(id, budgetDTO);
-    }
 }

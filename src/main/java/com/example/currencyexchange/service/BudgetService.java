@@ -1,17 +1,12 @@
 package com.example.currencyexchange.service;
 
 import com.example.currencyexchange.domain.Budget;
+import com.example.currencyexchange.domain.TransactionType;
 import com.example.currencyexchange.dto.BudgetDTO;
 import com.example.currencyexchange.repository.BudgetRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 public class BudgetService {
@@ -23,21 +18,31 @@ public class BudgetService {
         this.repository = repository;
         this.modelMapper = modelMapper;
     }
+
     public Iterable<Budget> getAllBudgets() {
         return repository.findAll();
     }
 
     public BudgetDTO addBudget(BudgetDTO budgetDTO) {
-        Budget author = repository.save(modelMapper.map(budgetDTO, Budget.class));
-        return modelMapper.map(author, BudgetDTO.class);
+        double currentTotalAmount = repository.getCurrentTotalAmount();
+
+        if (budgetDTO.getTransactionType() == TransactionType.INCOME) {
+            currentTotalAmount += budgetDTO.getAmount();
+        } else {
+            if (budgetDTO.getAmount() > currentTotalAmount) {
+                //TODO incorrect error
+                throw new IllegalArgumentException("Insufficient funds: cannot spend more than current total amount .this is :" + budgetDTO.getAmount());
+            } else {
+                currentTotalAmount -= budgetDTO.getAmount();
+            }
+        }
+        Budget budget = new Budget();
+        budget.setAmount(budgetDTO.getAmount());
+        budget.setTransactionType(budgetDTO.getTransactionType());
+        budget.setTotalAmount(currentTotalAmount);
+        Budget savedBudget = repository.save(budget);
+
+        return modelMapper.map(savedBudget, BudgetDTO.class);
     }
 
-    public BudgetDTO updateBudget(long id, BudgetDTO budgetDTO) {
-        if (!repository.existsById(id)) {
-            throw new EntityNotFoundException("Budget not found with this id : " + id);
-        }
-        budgetDTO.setId(id);
-        Budget budget = repository.save(modelMapper.map(budgetDTO, Budget.class));;
-        return modelMapper.map(budget, BudgetDTO.class);
-    }
 }

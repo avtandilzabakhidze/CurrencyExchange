@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CurrencyDTO {
-    private long id;
     private CurrencyType currencyType;
     private double exchangeRate;
 }

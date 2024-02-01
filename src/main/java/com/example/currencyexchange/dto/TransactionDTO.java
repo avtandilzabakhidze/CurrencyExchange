@@ -11,11 +11,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class TransactionDTO {
-    private long id;
     private UserDTO user;
     private double amount;
-    private double takenAmount;
     private CurrencyDTO fromCurrency;
     private CurrencyDTO toCurrency;
-    private LocalDateTime transactionTime;
 }

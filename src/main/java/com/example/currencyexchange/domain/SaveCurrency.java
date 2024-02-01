@@ -22,5 +22,5 @@ public class SaveCurrency {
     private Currency currency;
     private double totalAmount;
     private double amount;
-    private LocalDateTime transactionTime;
+    private LocalDateTime transactionTime =LocalDateTime.now();
 }

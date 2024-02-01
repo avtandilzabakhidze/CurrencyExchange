@@ -10,9 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class SaveCurrencyDTO {
-    private long id;
     private CurrencyDTO currency;
     private double totalAmount;
     private double amount;
-    private LocalDateTime transactionTime;
 }

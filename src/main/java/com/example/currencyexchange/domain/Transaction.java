@@ -26,5 +26,5 @@ public class Transaction {
     private Currency fromCurrency;
     @ManyToOne
     private Currency toCurrency;
-    private LocalDateTime transactionTime;
+    private LocalDateTime transactionTime =LocalDateTime.now();
 }

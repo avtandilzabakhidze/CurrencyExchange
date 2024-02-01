@@ -18,6 +18,9 @@ public class Budget {
     @GeneratedValue(generator = "budget_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "budget_id_gen", sequenceName = "budget_id_seq", allocationSize = 1)
     private long id;
-    private double totalAmount;
+    private double totalAmount = 0;
+    private double amount;
     private LocalDateTime transactionTime = LocalDateTime.now();
+    @Enumerated(value = EnumType.STRING)
+    private TransactionType transactionType = TransactionType.INCOME;
 }
