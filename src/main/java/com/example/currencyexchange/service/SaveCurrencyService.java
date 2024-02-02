@@ -1,9 +1,7 @@
 package com.example.currencyexchange.service;
 
 import com.example.currencyexchange.domain.SaveCurrency;
-import com.example.currencyexchange.domain.User;
 import com.example.currencyexchange.dto.SaveCurrencyDTO;
-import com.example.currencyexchange.dto.UserDTO;
 import com.example.currencyexchange.repository.SaveCurrencyRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

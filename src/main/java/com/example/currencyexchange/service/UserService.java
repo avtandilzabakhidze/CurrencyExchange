@@ -3,7 +3,6 @@ package com.example.currencyexchange.service;
 import com.example.currencyexchange.domain.User;
 import com.example.currencyexchange.dto.UserDTO;
 import com.example.currencyexchange.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

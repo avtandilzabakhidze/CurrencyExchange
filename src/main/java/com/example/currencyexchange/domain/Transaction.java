@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Transaction {
     @Id
-    @GeneratedValue(generator = "transaction_id_gen",strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "transaction_id_gen",sequenceName = "transaction_id_seq",allocationSize = 1)
+    @GeneratedValue(generator = "transaction_id_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "transaction_id_gen", sequenceName = "transaction_id_seq", allocationSize = 1)
     private long id;
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;

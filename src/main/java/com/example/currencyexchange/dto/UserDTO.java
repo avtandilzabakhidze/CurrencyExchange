@@ -1,7 +1,5 @@
 package com.example.currencyexchange.dto;
 
-import com.example.currencyexchange.domain.Transaction;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
