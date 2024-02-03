@@ -1,5 +1,6 @@
 package com.example.currencyexchange.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,8 @@ public class Transaction {
     @GeneratedValue(generator = "transaction_id_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "transaction_id_gen", sequenceName = "transaction_id_seq", allocationSize = 1)
     private long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @ManyToOne( fetch = FetchType.LAZY)
     private User user;
     private double amount;
     private double takenAmount;

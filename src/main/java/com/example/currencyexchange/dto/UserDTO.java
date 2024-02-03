@@ -15,5 +15,4 @@ public class UserDTO {
     private LocalDate birthDate;
     private long phoneNumber;
     private String email;
-    private List<TransactionDTO> transactions;
 }

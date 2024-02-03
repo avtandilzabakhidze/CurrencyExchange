@@ -22,8 +22,4 @@ public class SaveCurrencyService {
         return repository.findAll();
     }
 
-    public SaveCurrencyDTO addSaveCurrency(SaveCurrencyDTO saveCurrencyDTO) {
-        SaveCurrency saveCurrency = repository.save(modelMapper.map(saveCurrencyDTO, SaveCurrency.class));
-        return modelMapper.map(saveCurrency, SaveCurrencyDTO.class);
-    }
 }
