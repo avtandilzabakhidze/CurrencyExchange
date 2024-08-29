@@ -1,6 +1,6 @@
 # CurrencyExchange App
 
-This CurrencyExchange app is a Java-based application developed using Spring Boot, PostgreSQL, and Docker.
+This CurrencyExchange app is a Java-based application developed using Spring Boot, PostgreSQL and Docker.
 
 ## Features
 
